@@ -30,8 +30,8 @@ test('Check the extra cup proposal is displayed and matching the design', async 
   await page.locator('[data-test="Cappuccino"]').click();
   await expect(page.locator('.promo>span')).toContainText('It\'s your lucky day! Get an extra cup of Mocha for $4.');
   await expect(page.locator('[data-test="(Discounted)_Mocha"]')).toBeVisible();
-  await expect(page.locator('button[class="yes"]')).toBeVisible();
-  await expect(page.locator('button[class="yes"]+button')).toBeVisible();
+  await expect(page.locator('.promo button[class="yes"]')).toBeVisible();
+  await expect(page.locator('.promo button:not(.yes)')).toBeVisible();
 });
 
 test('Check that user can accept extra cup proposal and total increases for 4$', async ({ page }) => {
